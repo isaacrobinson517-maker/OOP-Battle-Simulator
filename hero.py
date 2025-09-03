@@ -20,7 +20,7 @@ class Hero:
         #TODO Set the hero's health. You might give the hero more health than a goblin.
         self.health = 150
          #TODO Set the hero's attack power. Should it be more consistent than the goblin's?
-        self.attack_power = 28
+        self.attack_power = 35
         
         
        
