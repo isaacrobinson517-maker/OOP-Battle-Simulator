@@ -7,7 +7,7 @@ def main():
     print("༼ ᓄºل͟º ༽ᓄ   ᕦ(ò_óˇ)ᕤ")
 
     # Create a hero
-    hero = Hero("Aragorn")
+    hero = Hero("The Didler")
 
     # Create goblins ༼ ºل͟º ༽ ༼ ºل͟º ༽ ༼ ºل͟º ༽
     goblins = [Goblin(f"Goblin {i+1}") for i in range(3)]
