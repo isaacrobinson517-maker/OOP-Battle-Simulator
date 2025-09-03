@@ -11,10 +11,13 @@ class Goblin:
     """
     def __init__(self, name):
         self.name = name
-        self.health = 100
+        self.health = 150
         self.attack_power = random.randint(5, 15)
 
     def attack(self):
+        critical = random.randint(1,100)
+        if critical >= 95:
+            self.attack_power = self.attack_power * 9999999999999999999999999999999999999999999999999999999
         
         return random.randint(1, self.attack_power)
 
