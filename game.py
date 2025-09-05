@@ -1,6 +1,7 @@
 import random
 from goblin import Goblin
 from hero import Hero
+from Boss import The_Ancient_Dragon
 
 def main():
     print("Welcome to the Battle Arena!")
@@ -42,6 +43,14 @@ def main():
         print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
+    if hero.is_alive():
+        print("BOSS TIME!!!!!!!!!!")
+        while hero.is_alive():
+            print("\nNew Round!")
+            damage = hero.strike()
+            print(f"Hero attacks The Ancient Dragon for {damage} damage!")
+            # Assuming The Ancient Dragon is an instance of a Boss class
+            The_Ancient_Dragon.receive_damage(damage)
 
     # Final tally of goblins defeated
     print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
