@@ -45,15 +45,21 @@ def main():
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
     if hero.is_alive():
         print("BOSS TIME!!!!!!!!!!")
-        while hero.is_alive():
+        dragon = The_Ancient_Dragon("Ancient Dragon")
+        while hero.is_alive() and dragon.is_alive():
             print("\nNew Round!")
             damage = hero.strike()
-            print(f"Hero attacks The Ancient Dragon for {damage} damage!")
-            # Assuming The Ancient Dragon is an instance of a Boss class
-            The_Ancient_Dragon.receive_damage(damage)
+            print(f"Hero attacks {dragon.name} for {damage} damage!")
+            dragon.receive_damage(damage)
+            if dragon.is_alive():
+                dragon_damage = dragon.attack_power  # You may want to use a method for attack
+                print(f"{dragon.name} attacks hero for {dragon_damage} damage!")
+                hero.receive_damage(dragon_damage)
+        if not dragon.is_alive():
+            print(f"{dragon.name} has been defeated! 🐉")
 
     # Final tally of goblins defeated
-    print(f"\nTotal goblins defeated: {defeated_goblins} / {len(goblins)}")
+   
 
 if __name__ == "__main__":
     main()
