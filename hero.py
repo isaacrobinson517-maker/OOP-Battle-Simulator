@@ -21,11 +21,7 @@ class Hero:
         #TODO Set the hero's health. You might give the hero more health than a goblin.
         self.health = 300
          #TODO Set the hero's attack power. Should it be more consistent than the goblin's?
-        self.attack_power = 35
-        
-        
-       
-    
+        self.attack_power = random.randint(30, 40)
 
     def strike(self):
         if The_Ancient_Dragon.is_alive == False:
@@ -34,6 +30,25 @@ class Hero:
         # TODO Implement the hero's attack logic. It could be stronger or more consistent than a goblin's.
         return (self.attack_power)
     
+    def punch(self):
+        if The_Ancient_Dragon.is_alive == False:
+            return self.attack_power * 3 * .75
+        return (self.attack_power * .75)
+    
+    def dragon_sword_slash(self):
+        if The_Ancient_Dragon.is_alive == False:
+            return self.attack_power * 3 * 1.25
+        return (self.attack_power * 1.25)
+   
+    def dropkick(self):
+        randomnum = random.randint(1, 100)
+        if The_Ancient_Dragon.is_alive == False:
+            return self.attack_power * 3
+        if randomnum >= 70:
+            self.negate_next_damage = True
+            print("The dropkick stuns the enemy for one turn! 🦵😵")
+        return self.attack_power
+
     
     def receive_damage(self, damage):
         # TODO Implement take_damage

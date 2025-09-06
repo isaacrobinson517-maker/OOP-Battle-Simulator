@@ -22,7 +22,14 @@ def main():
         
         # Hero's turn to attack
         target_goblin = random.choice([goblin for goblin in goblins if goblin.is_alive()])
-        damage = hero.strike()
+        attack_choice = input("Do you want to Punch the goblin (1) or Strike the Goblin (2) ")
+        if attack_choice == "1":
+            damage = hero.punch()
+        elif attack_choice == "2":
+            damage = hero.strike()
+        else:
+            print("Invalid choice! Hero misses the attack.")
+            damage = 0
         print(f"Hero attacks {target_goblin.name} for {damage} damage!")
         target_goblin.take_damage(damage)
 
@@ -41,6 +48,7 @@ def main():
     # Determine outcome
     if hero.is_alive():
         print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
+        print("You have unlocked the ability 'DROPKICK' - A powerful attack that deals 75% of normal damage but has a chance to stun the enemy for one turn.")
     else:
         print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
     if hero.is_alive():
@@ -48,7 +56,16 @@ def main():
         dragon = The_Ancient_Dragon("Ancient Dragon")
         while hero.is_alive() and dragon.is_alive():
             print("\nNew Round!")
-            damage = hero.strike()
+            dragon_attack_choice = input("Do you want to Punch (1), Strike (2) or Dropkick (3) the Dragon ")
+            if dragon_attack_choice == "1":
+                damage = hero.punch()
+            elif dragon_attack_choice == "2":
+                damage = hero.strike()
+            elif dragon_attack_choice == "3":
+                damage = hero.dropkick()
+            else:
+                print("Invalid choice! Hero misses the attack.")
+                damage = 0
             print(f"Hero attacks {dragon.name} for {damage} damage!")
             dragon.receive_damage(damage)
             if dragon.is_alive():
@@ -57,13 +74,14 @@ def main():
                 hero.receive_damage(dragon_damage)
         if not dragon.is_alive():
             print(f"{dragon.name} has been defeated! 🐉")
-            print("Hero has received ability 💪  MIGHT OF THE DRAGON - All attack damage is doubled")
+            print("Bilbo has received ability 💪  MIGHT OF THE DRAGON - All attack damage is doubled")
+            print("Bilbo has unlocked the ability 'DRAGON SWORD SLASH' - A powerful attack that deals 125% of normal damage.")
             randomgobnum = random.randint(1, 100)
             baby_elves = []
-            if randomgobnum >= 60:
+            if randomgobnum >= 40:
                 print("Killing The Ancient Dragon has summoned 3 baby elves to fight you!")
                 from baby_elf import BabyElf
-                baby_elves = [BabyElf(f"Baby Elf {i+1}") for i in range(2)]
+                baby_elves = [BabyElf(f"Baby Elf {i+1}") for i in range(3)]
                 baby_elf_alive = True
                 turn = 0
                 while hero.is_alive() and any(baby_elf.is_alive() for baby_elf in baby_elves):
@@ -74,7 +92,18 @@ def main():
                             baby_elf.cry()
                     # Hero attacks a random living baby elf
                     target_baby_elf = random.choice([be for be in baby_elves if be.is_alive()])
-                    damage = hero.strike()
+                    elf_attack_choice = input("Do you want to Strike (1) Punch (2), Dropkick (4), or Dragon Slash (3) the baby elf ")
+                    if elf_attack_choice == "1":
+                        damage = hero.strike()
+                    elif elf_attack_choice == "2":
+                        damage = hero.punch()
+                    elif elf_attack_choice == "3":
+                        damage = hero.dragon_sword_slash()
+                    elif elf_attack_choice == "4":
+                        damage = hero.dropkick()
+                    else:
+                        print("Invalid choice! Hero misses the attack.")
+                        damage = 0
                     print(f"Hero attacks {target_baby_elf.name} for {damage} damage!")
                     target_baby_elf.take_damage(damage)
                     # Baby elves attack hero
