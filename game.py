@@ -63,7 +63,7 @@ def main():
             if randomgobnum >= 60:
                 print("Killing The Ancient Dragon has summoned 3 baby elves to fight you!")
                 from baby_elf import BabyElf
-                baby_elves = [BabyElf(f"Baby Elf {i+1}") for i in range(3)]
+                baby_elves = [BabyElf(f"Baby Elf {i+1}") for i in range(2)]
                 baby_elf_alive = True
                 turn = 0
                 while hero.is_alive() and any(baby_elf.is_alive() for baby_elf in baby_elves):
