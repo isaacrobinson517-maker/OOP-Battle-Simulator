@@ -47,10 +47,10 @@ def main():
 
     # Determine outcome
     if hero.is_alive():
-        print(f"\nThe hero has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
-        print("You have unlocked the ability 'DROPKICK' - A powerful attack that deals 75% of normal damage but has a chance to stun the enemy for one turn.")
+        print(f"\nBilbo has defeated all the goblins! ༼ ᕤ◕◡◕ ༽ᕤ")
+        print("Bilbo has unlocked the ability 'DROPKICK' - A powerful attack that deals 75% of normal damage but has a chance to stun the enemy for one turn.")
     else:
-        print(f"\nThe hero has been defeated. Game Over. (｡•́︿•̀｡)")
+        print(f"\n Bilbo has been defeated. Game Over. (｡•́︿•̀｡)")
     if hero.is_alive():
         print("BOSS TIME!!!!!!!!!!")
         dragon = The_Ancient_Dragon("Ancient Dragon")
@@ -66,11 +66,11 @@ def main():
             else:
                 print("Invalid choice! Hero misses the attack.")
                 damage = 0
-            print(f"Hero attacks {dragon.name} for {damage} damage!")
+            print(f"Bilbo attacks {dragon.name} for {damage} damage!")
             dragon.receive_damage(damage)
             if dragon.is_alive():
                 dragon_damage = dragon.attack_power  # You may want to use a method for attack
-                print(f"{dragon.name} attacks hero for {dragon_damage} damage!")
+                print(f"{dragon.name} attacks Bilbo for {dragon_damage} damage!")
                 hero.receive_damage(dragon_damage)
         if not dragon.is_alive():
             print(f"{dragon.name} has been defeated! 🐉")
@@ -102,21 +102,21 @@ def main():
                     elif elf_attack_choice == "4":
                         damage = hero.dropkick()
                     else:
-                        print("Invalid choice! Hero misses the attack.")
+                        print("Invalid choice! Bilbo missed the attack.")
                         damage = 0
-                    print(f"Hero attacks {target_baby_elf.name} for {damage} damage!")
+                    print(f"Bilbo attacks {target_baby_elf.name} for {damage} damage!")
                     target_baby_elf.take_damage(damage)
                     # Baby elves attack hero
                     for baby_elf in baby_elves:
                         if baby_elf.is_alive():
                             elf_damage = random.randint(1, 10)
-                            print(f"{baby_elf.name} attacks hero for {elf_damage} damage!")
+                            print(f"{baby_elf.name} attacks Bilbo for {elf_damage} damage!")
                             hero.receive_damage(elf_damage)
                     turn += 1
                 if not hero.is_alive():
-                    print("The baby elves have defeated the hero! 😭")
+                    print("The baby elves have defeated Bilbo! 😭")
                 else:
-                    print("The hero has defeated all the baby elves! 🎉")
+                    print("Bilbo has defeated all the baby elves! 🎉")
 
     # Final tally of goblins defeated
    
