@@ -51,6 +51,9 @@ class Hero:
 
     
     def receive_damage(self, damage):
+        if hasattr(self, 'negate_next_damage') and self.negate_next_damage:
+            print(f"{self.name} negates all damage this turn with a powerful cry!")
+            self.negate_next_damage = False
         # TODO Implement take_damage
         self.health -= damage
         # TODO We should prevent health from going into the NEGATIVE
