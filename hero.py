@@ -1,4 +1,5 @@
 import random
+from Boss import The_Ancient_Dragon
 class Hero:
     """
     This is our hero blueprint.
@@ -27,9 +28,12 @@ class Hero:
     
 
     def strike(self):
+        if The_Ancient_Dragon.is_alive == False:
+            return self.attack_power * 3
         
         # TODO Implement the hero's attack logic. It could be stronger or more consistent than a goblin's.
         return (self.attack_power)
+    
     
     def receive_damage(self, damage):
         # TODO Implement take_damage
