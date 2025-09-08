@@ -17,7 +17,7 @@ class Enemy:
     def attack(self):
         critical = random.randint(1,100)
         if critical == 100:
-            self.attack_power = self.attack_power * 9999999999999999999999999999999999999999999999999999999
+            self.attack_power = self.attack_power * 10
         
         return random.randint(1, self.attack_power)
 
